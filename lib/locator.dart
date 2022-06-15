@@ -6,5 +6,5 @@ GetIt locator  = GetIt.instance;
 
 void setupLocator(){
   locator.registerFactory(() =>LocalStorageService() );
-  locator.registerFactory(() =>ApiServices() );
+  locator.registerFactory(() =>ApiServices());
 }
