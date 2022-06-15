@@ -16,8 +16,8 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
     on<IncrementStarted>((event, emit) async =>{
 
       local.save(state.count+1),
-      await api.getBinary(state.count+1),
-      local.saveBin(ApiServices.binary),
+       await api.getBinary(state.count+1),
+       local.saveBin(ApiServices.binary),
         emit( CounterComplete(state.count+1)),
     },
     );
@@ -26,6 +26,7 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
       await api.getBinary(state.count-1),
       local.saveBin(ApiServices.binary),
       emit( CounterComplete(state.count-1)),
+
     });
   }
 

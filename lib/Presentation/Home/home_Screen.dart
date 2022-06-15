@@ -22,15 +22,17 @@ class _CounterPageState extends State<CounterPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             BlocBuilder<CounterBloc,CounterState>(
-                builder: (context,state)  {
+                builder: (context,state)   {
                   final api = locator<ApiServices>();
+                  api.getBinary(state.count);
                   return Text(ApiServices.binary);
                 }
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(onPressed: (){counterBloc.add(const IncrementStarted());}, child: const Icon(Icons.add)),
+                ElevatedButton(onPressed: ()  {
+                  counterBloc.add(const IncrementStarted());}, child: const Icon(Icons.add)),
                 BlocBuilder<CounterBloc,CounterState>(
                     builder: (context,state)  {
                       return Padding(

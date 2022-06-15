@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:bloc_assign/Data/local.dart';
 import 'package:dio/dio.dart';
 
 class ApiServices{
@@ -21,7 +22,7 @@ class ApiServices{
 
 
   }
-  static String binary="0";
+  static String binary=LocalStorageService().readBinary();
   Future<void> getBinary(int n)async{
     Response response;
     response = await this.response(n);
